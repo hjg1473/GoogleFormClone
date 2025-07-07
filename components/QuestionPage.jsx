@@ -21,6 +21,7 @@ import {
   MenuTrigger,
 } from 'react-native-popup-menu';
 import ContactCard from './ContactCard';
+
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -61,8 +62,6 @@ const Item = ({ title, onCopy, onDelete }) => (
       {title}
     </TextInput>
     <View style={[styles.borderContainer]} />
-    {/* <Button title="Copy" onPress={onCopy} />
-    <Button title="Delete" onPress={onDelete} /> */}
     <Menu>
       <MenuTrigger text="Select action" />
       <MenuOptions>

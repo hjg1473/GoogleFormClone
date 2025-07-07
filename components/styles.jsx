@@ -89,8 +89,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#4285F4', 
     borderTopLeftRadius: 20,   
     borderBottomLeftRadius: 20, 
-  },  
-
+  },
+  inActive: {
+    position: 'absolute',
+  },
+  active: {
+    position: 'relative',
+  },
 });
 
 export default styles;
