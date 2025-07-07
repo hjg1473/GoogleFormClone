@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Pressable,
+  ImageBackground,
 } from 'react-native';
 import styles from './styles';
 import React, { useEffect, useRef, useState } from 'react';
@@ -88,13 +89,21 @@ function QuestionPage() {
 
   return (
       <MenuProvider>
-        <View
+        
+        <ScrollView
           style={{
             flex: 1,
           }}
-        >
-            <View style={styles.header}></View>
+        >   
+            <View style={styles.header}>
+              <ImageBackground
+                source={require('../assets/image.png')}
+                style={{flex: 1}}
+              >
+              </ImageBackground>
+            </View>
 
+            
             <View
               style={[
                 styles.titleContent,
@@ -124,18 +133,15 @@ function QuestionPage() {
               <View style={[styles.borderContainer]} />
             </View>
 
-            <FlatList
-              data={list}
-              renderItem={({ item }) => (
-                <Item
-                  title={item.title}
-                  onCopy={() => copyItem(item.id)}
-                  onDelete={() => removeItem(item.id)}
-                />
-              )}
-              keyExtractor={item => item.id}
-            />
-        </View>
+            {list.map(item => (
+              <Item
+                key={item.id}
+                title={item.title}
+                onCopy={() => copyItem(item.id)}
+                onDelete={() => removeItem(item.id)}
+              />
+            ))}
+        </ScrollView>
       </MenuProvider>
   );
 }

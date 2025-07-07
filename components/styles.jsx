@@ -7,8 +7,9 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 100,
     width: '90%',
-    alignSelf: 'center',
+    alignSelf: 'center',  
     borderRadius: 10,
+    overflow: 'hidden',
   },
   titleContent: {
     flex: 1,

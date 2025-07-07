@@ -60,6 +60,7 @@ export default function App() {
     <View style={{ flex: 0.05, flexDirection: 'row', padding: 10}}>
       <Icon name="file-document" size={30} color="#7f59bf" />
       <Text style={{marginTop: 5, marginLeft: 10}}>연락처 정보</Text>
+
     </View>
       <NavigationContainer>
         <MyTabs />
