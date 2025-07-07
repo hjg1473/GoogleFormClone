@@ -22,8 +22,10 @@ const styles = StyleSheet.create({
     borderLeftColor: '#0055FF',
     borderTopWidth: 5,
     borderTopColor: 'green',
-    borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderRightWidth: 1,
+    borderRightColor: '#D3D3D3',
+    borderBottomWidth: 1,
+    borderBottomColor: '#D3D3D3',
   },
   content: {
     // flex: 1,
@@ -37,8 +39,10 @@ const styles = StyleSheet.create({
     borderLeftColor: '#0055FF',
     // borderTopWidth: 10,
     // borderTopColor: 'green',
-    borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderRightWidth: 1,
+    borderRightColor: '#D3D3D3',
+    borderBottomWidth: 1,
+    borderBottomColor: '#D3D3D3',
   },
   input: {
     fontSize: 20,
@@ -73,12 +77,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
-  pressedItem: {
-    backgroundColor: '#e0e0e0', // 눌렀을 때 회색 배경
-  },
-  title: {
-    fontSize: 16,
-  },  
 });
 
 export default styles;

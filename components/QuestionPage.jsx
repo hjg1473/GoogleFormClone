@@ -20,7 +20,7 @@ import {
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu';
-
+import ContactCard from './ContactCard';
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -91,9 +91,7 @@ function QuestionPage() {
       <MenuProvider>
         
         <ScrollView
-          style={{
-            flex: 1,
-          }}
+          style={styles.scrollView}
         >   
             <View style={styles.header}>
               <ImageBackground
@@ -102,36 +100,8 @@ function QuestionPage() {
               >
               </ImageBackground>
             </View>
-
             
-            <View
-              style={[
-                styles.titleContent,
-                { flexDirection: 'column', padding: 10 },
-              ]}
-            >
-              <TextInput
-                style={[styles.input, { margin: 10 }]}
-                keyboardType="default"
-                value={text}
-                onChangeText={setText}
-                textAlign="left"
-              />
-              <View style={[styles.borderContainer]} />
-
-              <TextInput
-                style={[
-                  styles.input,
-                  { fontSize: 14, marginLeft: 10, marginTop: 10 },
-                ]}
-                onChangeText={setContent}
-                value={content}
-                placeholder="설문지 설명"
-                keyboardType="default"
-                textAlign="left"
-              />
-              <View style={[styles.borderContainer]} />
-            </View>
+            <ContactCard text={text} setText={setText} content={content} setContent={setContent}/>
 
             {list.map(item => (
               <Item
