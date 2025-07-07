@@ -22,7 +22,11 @@ const styles = StyleSheet.create({
     borderRightColor: '#D3D3D3',
     borderBottomWidth: 1,
     borderBottomColor: '#D3D3D3',
-    
+    elevation: 0, // 안드로이드용 그림자
+    shadowColor: '#000', // iOS용 그림자
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0,
+    shadowRadius: 4,       
   },
   content: {
     // flex: 1,
@@ -38,7 +42,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#D3D3D3',    
   },
   input: {
-    fontSize: 20,
+    fontSize: 24,
   },
   inputBox: {
     flex: 1,
@@ -83,7 +87,7 @@ const styles = StyleSheet.create({
   leftAccent: {
     position: 'absolute',
     zIndex: 0,
-    height: 139,
+    height: 125,
     width: 5,
     left: 0,
     backgroundColor: '#4285F4', 
