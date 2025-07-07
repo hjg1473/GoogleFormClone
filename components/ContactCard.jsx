@@ -9,6 +9,9 @@ function ContactCard({text, setText, content, setContent}) {
         { flexDirection: 'column', padding: 10 },
         ]}
     >
+        <View style={[styles.topAccent]} />
+        <View style={[styles.leftAccent]} />
+
         <TextInput
         style={[styles.input, { margin: 10 }]}
         keyboardType="default"

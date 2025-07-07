@@ -54,6 +54,7 @@ const DATA = [
 
 const Item = ({ title, onCopy, onDelete }) => (
   <View style={styles.content}>
+    <View style={[styles.leftAccent, {height: 98}]} />
     <TextInput
       style={[styles.title, { fontSize: 14, marginLeft: 10, marginTop: 10 }]}
     >
@@ -89,7 +90,6 @@ function QuestionPage() {
 
   return (
       <MenuProvider>
-        
         <ScrollView
           style={styles.scrollView}
         >   

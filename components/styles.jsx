@@ -18,14 +18,11 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     borderRadius: 10,
-    borderLeftWidth: 5,
-    borderLeftColor: '#0055FF',
-    borderTopWidth: 5,
-    borderTopColor: 'green',
     borderRightWidth: 1,
     borderRightColor: '#D3D3D3',
     borderBottomWidth: 1,
     borderBottomColor: '#D3D3D3',
+    
   },
   content: {
     // flex: 1,
@@ -35,14 +32,10 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     borderRadius: 10,
-    borderLeftWidth: 5,
-    borderLeftColor: '#0055FF',
-    // borderTopWidth: 10,
-    // borderTopColor: 'green',
     borderRightWidth: 1,
     borderRightColor: '#D3D3D3',
     borderBottomWidth: 1,
-    borderBottomColor: '#D3D3D3',
+    borderBottomColor: '#D3D3D3',    
   },
   input: {
     fontSize: 20,
@@ -77,6 +70,27 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
+  topAccent: {
+    position: 'absolute',
+    zIndex: 1,
+    height: 5,
+    width: 369,
+    right: 0,
+    backgroundColor: 'green',
+    borderTopLeftRadius: 20,    
+    borderTopRightRadius: 20, 
+  },      
+  leftAccent: {
+    position: 'absolute',
+    zIndex: 0,
+    height: 139,
+    width: 5,
+    left: 0,
+    backgroundColor: '#4285F4', 
+    borderTopLeftRadius: 20,   
+    borderBottomLeftRadius: 20, 
+  },  
+
 });
 
 export default styles;
