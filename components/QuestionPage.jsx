@@ -1,0 +1,143 @@
+import {
+  View,
+  TextInput,
+  Text,
+  ScrollView,
+  FlatList,
+  Button,
+  Alert,
+  TouchableOpacity,
+  SafeAreaView,
+  Pressable,
+} from 'react-native';
+import styles from './styles';
+import React, { useEffect, useRef, useState } from 'react';
+import { MenuProvider } from 'react-native-popup-menu';
+import {
+  Menu,
+  MenuOptions,
+  MenuOption,
+  MenuTrigger,
+} from 'react-native-popup-menu';
+
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+  {
+    id: '58694a1f-3da1-471f-bd96-145571e29d72',
+    title: 'Fourth Item',
+  },  
+  {
+    id: '58694a2f-3da1-471f-bd96-145571e29d72',
+    title: 'Fifth Item',
+  },  
+  {
+    id: '58694a3f-3da1-471f-bd96-145571e29d72',
+    title: 'Sixth Item',
+  },  
+  {
+    id: '58694a4f-3da1-471f-bd96-145571e29d72',
+    title: 'Seventh Item',
+  },  
+];
+
+const Item = ({ title, onCopy, onDelete }) => (
+  <View style={styles.content}>
+    <TextInput
+      style={[styles.title, { fontSize: 14, marginLeft: 10, marginTop: 10 }]}
+    >
+      {title}
+    </TextInput>
+    <View style={[styles.borderContainer]} />
+    {/* <Button title="Copy" onPress={onCopy} />
+    <Button title="Delete" onPress={onDelete} /> */}
+    <Menu>
+      <MenuTrigger text="Select action" />
+      <MenuOptions>
+        <MenuOption onSelect={onCopy} text="Save" />
+        <MenuOption onSelect={onDelete}>
+          <Text style={{ color: 'red' }}>Delete</Text>
+        </MenuOption>
+      </MenuOptions>
+    </Menu>
+  </View>
+);
+
+function QuestionPage() {
+  const [list, setList] = React.useState(DATA);
+  const [text, setText] = React.useState('제목 없는 설문지');
+  const [content, setContent] = React.useState('');
+
+  const copyItem = copiedId => {
+    const newItem = { id: Math.random().toString(), title: 'copy item' };
+    setList(prevData => [...prevData, newItem]);
+  };
+  const removeItem = idToRemove => {
+    setList(prevData => prevData.filter(item => item.id !== idToRemove));
+  };
+
+  return (
+      <MenuProvider>
+        <View
+          style={{
+            flex: 1,
+          }}
+        >
+            <View style={styles.header}></View>
+
+            <View
+              style={[
+                styles.titleContent,
+                { flexDirection: 'column', padding: 10 },
+              ]}
+            >
+              <TextInput
+                style={[styles.input, { margin: 10 }]}
+                keyboardType="default"
+                value={text}
+                onChangeText={setText}
+                textAlign="left"
+              />
+              <View style={[styles.borderContainer]} />
+
+              <TextInput
+                style={[
+                  styles.input,
+                  { fontSize: 14, marginLeft: 10, marginTop: 10 },
+                ]}
+                onChangeText={setContent}
+                value={content}
+                placeholder="설문지 설명"
+                keyboardType="default"
+                textAlign="left"
+              />
+              <View style={[styles.borderContainer]} />
+            </View>
+
+            <FlatList
+              data={list}
+              renderItem={({ item }) => (
+                <Item
+                  title={item.title}
+                  onCopy={() => copyItem(item.id)}
+                  onDelete={() => removeItem(item.id)}
+                />
+              )}
+              keyExtractor={item => item.id}
+            />
+        </View>
+      </MenuProvider>
+  );
+}
+
+export default QuestionPage;
