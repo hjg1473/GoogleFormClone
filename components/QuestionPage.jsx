@@ -20,7 +20,8 @@ import {
   MenuOption,
   MenuTrigger,
 } from 'react-native-popup-menu';
-import ContactCard from './ContactCard';
+import CardForm from './CardForm';
+import CardForm_v2 from './CardForm_v2';
 
 const DATA = [
   {
@@ -54,14 +55,8 @@ const DATA = [
 ];
 
 const Item = ({ title, onCopy, onDelete }) => (
-  <View style={styles.content}>
-    <View style={[styles.leftAccent, {height: 98}]} />
-    <TextInput
-      style={[styles.title, { fontSize: 14, marginLeft: 10, marginTop: 10 }]}
-    >
-      {title}
-    </TextInput>
-    <View style={[styles.borderContainer]} />
+  <View>
+    <CardForm_v2 />
     <Menu>
       <MenuTrigger text="Select action" />
       <MenuOptions>
@@ -100,7 +95,7 @@ function QuestionPage() {
               </ImageBackground>
             </View>
             
-            <ContactCard text={text} setText={setText} content={content} setContent={setContent}/>
+            <CardForm text={text} setText={setText} content={content} setContent={setContent}/>
 
             {list.map(item => (
               <Item

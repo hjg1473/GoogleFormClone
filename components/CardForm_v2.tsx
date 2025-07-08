@@ -2,8 +2,11 @@ import { View, TextInput, Text, Pressable, Animated, useAnimatedValue } from 're
 import styles from './styles';
 import React, { useEffect, useRef, useState } from 'react';
 import UnderLine from '../Utils/UnderLine';
+import Item from '../Utils/Item';
+import Icon from 'react-native-vector-icons/Ionicons';
+import DropdownComponent from './DropDown';
 
-function ContactCard({text, setText, content, setContent}) {
+ function CardForm_v2({text, setText, content, setContent}) {
   
   const [titleBorder, setTitleBorder] = React.useState(false);
   const [contentBorder, setContentBorder] = React.useState(false);
@@ -79,23 +82,22 @@ function ContactCard({text, setText, content, setContent}) {
         { flexDirection: 'column', padding: 10 },
         ]}
     >
-      <View style={[styles.topAccent]} />
 
       <View style={[
             styles.inActive,
             (titleBorder || contentBorder) && styles.leftAccent]} />
-
-      <TextInput
-        style={[styles.input, { marginTop: 10, marginLeft: 10 }]}
-        keyboardType="default"
-        value={text}
-        onChangeText={setText}
-        textAlign="left"
-        onFocus={handleTitleFocus}  
-        onBlur={() => resetAnimation()}
-      />
-
-      <UnderLine isActive={titleBorder} AnimatedValue={titlebortherAnim} />
+      <View style={{flex:1, flexDirection: 'row', marginLeft:10}}>
+        <Item 
+          value={text} 
+          onChangeText={setText}
+          onFocus={handleTitleFocus}
+          onBlur={resetAnimation}
+          isActive={titleBorder}
+          AnimatedValue={titlebortherAnim}
+        />
+        <Icon name="image-outline" style={{marginLeft: 10, marginTop: 20}} size={20} color="#555" />
+        <DropdownComponent />
+      </View>
 
       <TextInput
         style={[
@@ -110,11 +112,13 @@ function ContactCard({text, setText, content, setContent}) {
         onFocus={handleContentFocus}
         onBlur={() => resetAnimation()}
       />
+      <View style={{width:'95%', marginLeft:10}}> 
+        <UnderLine isActive={contentBorder} AnimatedValue={contentborderAnim} />
+      </View>
 
-      <UnderLine isActive={contentBorder} AnimatedValue={contentborderAnim} />
       
     </Animated.View>
   );
 }
 
-export default ContactCard;
+export default CardForm_v2;

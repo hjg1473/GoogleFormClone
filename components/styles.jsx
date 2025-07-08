@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   borderContainer: {
     backgroundColor: 'grey',
     height: 1,
-    width: '95%',
+    width: '100%',
     alignSelf: 'center',
   },
   scrollView: {

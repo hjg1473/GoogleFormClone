@@ -13,7 +13,7 @@ function UnderLine({ AnimatedValue, isActive}) {
             {
             width: AnimatedValue.current.interpolate({
                 inputRange: [0, 1],
-                outputRange: ['0%', '95%'],
+                outputRange: ['0%', '100%'],
             }),
             backgroundColor: isActive ? 'green' : 'black',
             position: 'absolute',
