@@ -2,6 +2,9 @@ import { View, TextInput, Text, Pressable, Animated, useAnimatedValue } from 're
 import styles from './styles';
 import React, { useEffect, useRef, useState } from 'react';
 import UnderLine from '../Utils/UnderLine';
+import Feather from '@expo/vector-icons/Feather';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import TextStlyeIcon from '../Utils/TextStyleIcon';
 
 function CardForm({text, setText, content, setContent}) {
   
@@ -83,7 +86,7 @@ function CardForm({text, setText, content, setContent}) {
 
       <View style={[
             styles.inActive,
-            (titleBorder || contentBorder) && styles.leftAccent]} />
+            (titleBorder || contentBorder) && [styles.leftAccent, {height: 150}]]} />
 
       <TextInput
         style={[styles.input, { marginTop: 10, marginLeft: 10 }]}
@@ -97,6 +100,10 @@ function CardForm({text, setText, content, setContent}) {
       <View style={{width: (titleBorder || contentBorder) ?'95%' : '0%', marginLeft:10}}>
         <UnderLine isActive={titleBorder} AnimatedValue={titlebortherAnim} />
       </View>
+
+    {(titleBorder) && (
+      <TextStlyeIcon />
+    )}
 
       <TextInput
         style={[
@@ -115,6 +122,9 @@ function CardForm({text, setText, content, setContent}) {
         <UnderLine isActive={contentBorder} AnimatedValue={contentborderAnim} />
       </View>
 
+    {(contentBorder) && (
+      <TextStlyeIcon />
+    )}
       
     </Animated.View>
   );
